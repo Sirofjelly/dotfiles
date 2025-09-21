@@ -1,0 +1,51 @@
+#!/bin/bash
+
+set -eufo pipefail
+
+{{ $brews := list
+     "age"
+     "bat"
+     "btop"
+     "curl"
+     "dockutil"
+     "eza"
+     "fd"
+     "ffmpeg"
+     "fzf"
+     "gdu"
+     "gh"
+     "git"
+     "git-lfs"
+     "jless"
+     "jq"
+     "node"
+     "openjdk"
+     "pinentry-mac"
+     "ripgrep"
+     "shellcheck"
+     "sqlc"
+     "tmux"
+     "wget"
+     "xz"
+     "yt-dlp" -}}
+{{ $casks := list
+     "keepassxc"
+     "firefox"
+     "brave-browser"
+     "ghostty"
+     "hammerspoon"
+     "spotify"
+     "transmission"
+     "visual-studio-code"
+     "vlc"
+     "raycast"
+     "whatsapp" -}}
+
+brew bundle --file=/dev/stdin <<EOF
+{{ range ($brews | sortAlpha | uniq) -}}
+brew "{{ . }}"
+{{ end -}}
+{{ range ($casks | sortAlpha | uniq) -}}
+cask "{{ . }}"
+{{ end -}}
+EOF
