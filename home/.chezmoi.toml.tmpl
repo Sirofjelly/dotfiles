@@ -35,7 +35,6 @@
 {{-     $ephemeral = true -}}
 {{-     $headless = true -}}
 {{-   end -}}
-{{- end -}}
 
 {{- $email := "68160094+Sirofjelly@users.noreply.github.com" -}}
 {{- if $work -}}
@@ -43,7 +42,9 @@
 {{- end -}}
 
 {{/* Keepass database path */}}
+{{- if $personal -}}
 {{- $database := promptStringOnce . "database" "What is the path to your .kdbx file" -}}
+{{- end -}}
 
 [data]
     ephemeral = {{ $ephemeral }}
