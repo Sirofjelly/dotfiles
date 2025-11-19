@@ -61,6 +61,8 @@
 
 [github]
     refreshPeriod = "12h"
-
+    
+{{- if $personal -}}
 [keepassxc]
     database = {{ $database | quote }}
+{{- end -}}
