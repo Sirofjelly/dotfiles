@@ -42,6 +42,7 @@
 {{- end -}}
 
 {{/* Keepass database path */}}
+{{- $database := "" -}}
 {{- if $personal -}}
 {{- $database := promptStringOnce . "database" "What is the path to your .kdbx file" -}}
 {{- end -}}
@@ -61,8 +62,6 @@
 
 [github]
     refreshPeriod = "12h"
-    
-{{- if $personal -}}
+
 [keepassxc]
     database = {{ $database | quote }}
-{{- end -}}
