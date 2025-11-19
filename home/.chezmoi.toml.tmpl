@@ -42,7 +42,7 @@
 {{- end -}}
 
 {{/* Keepass database path */}}
-{{- $database := "" -}}
+{{- $database := "test" -}}
 {{- if $personal -}}
 {{- $database := promptStringOnce . "database" "What is the path to your .kdbx file" -}}
 {{- end -}}
