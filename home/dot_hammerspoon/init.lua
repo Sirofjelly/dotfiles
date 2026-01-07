@@ -12,10 +12,9 @@ end
 
 local bindings = {
   [{'alt', 'cmd', 'ctrl', 'shift'}] = {
-    c = launchOrFocus('brave-browser'),
+    c = launchOrFocus('Brave Browser'),
     f = launchOrFocus('Finder'),
     i = launchOrFocus('Visual Studio Code'),
-    j = runCommand(os.getenv('HOME') .. '/.local/bin/forge-gui'),
     o = launchOrFocus('KeePassXC'),
     t = launchOrFocus('Ghostty'),
     w = launchOrFocus('WhatsApp'),
