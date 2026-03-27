@@ -79,6 +79,9 @@ alias fd=fdfind
 {{- if lookPath "eza" }}
 alias ls=eza
 {{- end }}
+{{- if lookPath "zoxide" }}
+alias cd=zoxide
+{{- end }}
 
 export EDITOR=nano
 export LANG=en_US.UTF-8
