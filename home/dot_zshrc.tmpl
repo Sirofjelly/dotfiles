@@ -82,6 +82,9 @@ alias ls=eza
 {{- if lookPath "zoxide" }}
 eval "$(zoxide init zsh --cmd cd)"
 {{- end }}
+{{- if lookPath "nono" }}
+alias pi="nono run --profile pi -- pi"
+{{- end }}
 
 export EDITOR=nano
 export LANG=en_US.UTF-8
