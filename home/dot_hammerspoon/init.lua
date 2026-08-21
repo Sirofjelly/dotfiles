@@ -28,6 +28,33 @@ for modifier, keyActions in pairs(bindings) do
   end
 end
 
+-- Restore a minimized window when its application is activated.
+local appWatcher = hs.application.watcher.new(function(_, event, app)
+  if event == hs.application.watcher.activated then
+    local windows = app:allWindows()
+
+    local hasVisibleWindow = false
+    for _, win in ipairs(windows) do
+      if not win:isMinimized() then
+        hasVisibleWindow = true
+        break
+      end
+    end
+
+    if not hasVisibleWindow then
+      for _, win in ipairs(windows) do
+        if win:isMinimized() then
+          win:unminimize()
+          win:focus()
+          break
+        end
+      end
+    end
+  end
+end)
+
+appWatcher:start()
+
 --
 -- Auto-reload config on change.
 --
